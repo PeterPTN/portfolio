@@ -1,14 +1,28 @@
 <script lang="ts">
   import ProjectButtons from "../components/ProjectButtons.svelte";
-  import MainProjectCard from "../components/SelectedProjectCard.svelte";
-  import SideProjectCard from "../components/MiscProjectCard.svelte";
+  import SelectedProjectCard from "../components/SelectedProjectCard.svelte";
+  import MiscProjectCard from "../components/MiscProjectCard.svelte";
   import About from "../components/About.svelte";
+  import {
+    getSelectedProjects,
+    getMiscProjects,
+  } from "../../services/firebase-utils";
+  import {onMount} from "svelte";
+
+  let selectedProjects = [];
+  let miscProjects = [];
+  
+  onMount(async () => {
+    selectedProjects = await getSelectedProjects();
+    miscProjects = await getMiscProjects();
+  })
 
   let globalProjectType = "selected";
 
   function toggleButton(projectType: string) {
     globalProjectType = projectType;
   }
+
 </script>
 
 <div class="main">
@@ -19,16 +33,18 @@
   <div class="main-right-col">
     <ProjectButtons {globalProjectType} handleClick={toggleButton} />
     <div class="main-right-col-content">
-      {#if globalProjectType === "selected"}
-        <MainProjectCard />
-        <MainProjectCard />
-        <MainProjectCard />
-        <MainProjectCard />
+      {#if selectedProjects.length === 0 && miscProjects.length === 0}
+        <p>Loading...</p>
+      {/if}
+
+      {#if globalProjectType === "selected" && selectedProjects.length > 0}
+        {#each selectedProjects as project}
+          <SelectedProjectCard {...project} />
+        {/each}
       {:else if globalProjectType === "misc"}
-        <SideProjectCard />
-        <SideProjectCard />
-        <SideProjectCard />
-        <SideProjectCard />
+        {#each miscProjects as project}
+          <MiscProjectCard {...project} />
+        {/each}
       {/if}
     </div>
   </div>
