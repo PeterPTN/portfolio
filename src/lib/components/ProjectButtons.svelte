@@ -4,11 +4,15 @@
 </script>
 
 <div>
-  <button class="truncate" class:active={globalProjectType === "selected"} on:click={() => handleClick("selected")}
-    >Selected Projects</button
+  <button
+    class="truncate"
+    class:active={globalProjectType === "selected"}
+    on:click={() => handleClick("selected")}>Selected Projects</button
   >
-  <button class="truncate" class:active={globalProjectType === "misc"} on:click={() => handleClick("misc")}
-    >Misc. Projects</button
+  <button
+    class="truncate"
+    class:active={globalProjectType === "misc"}
+    on:click={() => handleClick("misc")}>Misc. Projects</button
   >
 </div>
 
@@ -20,18 +24,18 @@
   button {
     background-color: transparent;
     border: none;
-    color: white;
+    color: var(--white);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     flex: 1;
   }
 
   button.active {
     transition: all 0.25s;
-    background-color: white;
-    color: black;
-    text-transform: uppercase;
+    background-color: var(--white);
+    color: rgb(129, 94, 17);
+    font-weight: bold;
   }
 </style>

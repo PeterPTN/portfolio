@@ -4,7 +4,7 @@
   import IoMdMail from "svelte-icons/io/IoMdMail.svelte";
 </script>
 
-<div>
+<div class="about-container">
   <img src="" alt="Me" />
 
   <ul>
@@ -28,9 +28,18 @@
 </div>
 
 <style>
+  .about-container {
+    position: sticky;
+    top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+  }
+
   img::before {
     content: attr(alt);
-    color: white;
+    color: var(--white);
   }
 
   ul {
@@ -38,25 +47,33 @@
   }
 
   p {
-    color: white;
+    color: var(--white);
   }
 
   ul {
-    display: flex;
-    justify-content: space-around;
+    margin: auto;
+    width: fit-content;
   }
 
   li {
     aspect-ratio: 1/1;
-    width: 4rem;
+    width: 3rem;
+    margin: 0 0.5rem;
   }
 
   a {
-    color: white;
+    color: var(--white);
     transition: all 0.15s;
   }
 
   a:hover {
     filter: brightness(0.75);
+  }
+
+  img {
+    height: 500px;
+    width: 100%;
+    background-color: rgb(29, 25, 25);
+    filter: brightness(0.8);
   }
 </style>

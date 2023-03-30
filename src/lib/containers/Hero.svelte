@@ -30,7 +30,7 @@
   h1 {
     letter-spacing: -3vw;
     font-size: 20vw;
-    color: white;
+    color: var(--white);
     flex: 4;
   }
 
@@ -38,7 +38,7 @@
     top: -3rem;
     position: relative;
     font-size: 3rem;
-    color: white;
+    color: var(--white);
   }
 
   .hero-right-col {
@@ -46,7 +46,7 @@
     flex-direction: column;
     justify-content: flex-end;
     font-size: 1.5rem;
-    color: white;
+    color: var(--white);
     flex: 1;
     padding: 1rem 4rem;
     opacity: 0.25;

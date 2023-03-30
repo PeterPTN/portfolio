@@ -7,22 +7,21 @@
     getSelectedProjects,
     getMiscProjects,
   } from "../../services/firebase-utils";
-  import {onMount} from "svelte";
+  import { onMount } from "svelte";
 
   let selectedProjects = [];
   let miscProjects = [];
-  
+
   onMount(async () => {
     selectedProjects = await getSelectedProjects();
     miscProjects = await getMiscProjects();
-  })
+  });
 
   let globalProjectType = "selected";
 
   function toggleButton(projectType: string) {
     globalProjectType = projectType;
   }
-
 </script>
 
 <div class="main">
@@ -53,6 +52,7 @@
 <style>
   .main {
     display: flex;
+    column-gap: 2rem;
   }
 
   .main-right-col {
@@ -62,11 +62,11 @@
   }
 
   .main-right-col-content {
-    background-color: white;
-    padding: 1rem;
+    background-color: var(--white);
+    padding: 3rem 1.5rem;
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 3rem;
   }
 
   .main-left-col {

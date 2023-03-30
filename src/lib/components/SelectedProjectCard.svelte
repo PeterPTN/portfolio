@@ -1,33 +1,93 @@
 <script lang="ts">
   import type ProjectDetails from "../../types/ProjectDetails";
+  import FaExternalLinkAlt from "svelte-icons/fa/FaExternalLinkAlt.svelte";
+  import FaCode from "svelte-icons/fa/FaCode.svelte";
   export let details: ProjectDetails;
   export let images: string[];
-
-  console.log(details)
-  console.log(images)
 </script>
 
-<div>
+<div class="project-card-container">
   <article>
-    <h2>{details?.title}</h2>
-    <p>{details?.blurb}</p>
-    <p>{details?.github}</p>
-    <p>{details?.url}</p>
+    <div>
+      <h2>{details?.title}</h2>
+      <p>{details?.blurb}</p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="external-links" href={details?.github}
+          ><div class="icon"><FaCode /></div>
+          Source Code</a
+        >
+      </li>
+      <li>
+        <a class="external-links" href={details?.url}
+          ><div class="icon"><FaExternalLinkAlt /></div>
+          View Live</a
+        >
+      </li>
+    </ul>
   </article>
 
-  <img src={images[0]} alt={details.title + " gif"}>
+  <a
+    class="project-image-link"
+    href={details?.url}
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+  >
+    <img src={images[0]} alt={details.title + " gif"} />
+  </a>
 </div>
 
 <style>
-    div {
-        display: flex;
-        align-items: center;
-        line-height: 1.25;
-    }
+  .project-card-container {
+    display: flex;
+    align-items: stretch;
+    line-height: 1.25;
+    column-gap: 2rem;
+  }
 
-    img {
-      width: 4rem;
-      height: 4rem;
-      object-fit: cover;
-    }
+  article {
+    padding: 0.5rem 0;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    row-gap: 0.5rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 0.5rem;
+  }
+
+  .icon {
+    aspect-ratio: 1/1;
+    height: 25px;
+    margin-right: 10px;
+  }
+
+  .external-links {
+    display: flex;
+    color: black;
+  }
+
+  .external-links:hover {
+    text-decoration: underline;
+  }
+
+  .project-image-link {
+    flex: 1;
+    height: 175px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2),
+      0px 0px 25px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
 </style>
