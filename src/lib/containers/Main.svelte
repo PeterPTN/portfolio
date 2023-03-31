@@ -33,7 +33,7 @@
     <ProjectButtons {globalProjectType} handleClick={toggleButton} />
     <div class="main-right-col-content">
       {#if selectedProjects.length === 0 && miscProjects.length === 0}
-        <p>Loading...</p>
+        <h2>Loading...</h2>
       {/if}
 
       {#if globalProjectType === "selected" && selectedProjects.length > 0}
@@ -71,5 +71,12 @@
 
   .main-left-col {
     flex: 1;
+  }
+
+  @media screen and (max-width:1000px) {
+    .main {
+      flex-direction: column;
+      row-gap: 4rem;
+    }
   }
 </style>

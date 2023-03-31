@@ -99,4 +99,15 @@
       0px 0px 25px rgba(0, 0, 0, 0.1);
     object-fit: cover;
   }
+
+  @media screen and (max-width:1000px) {
+    .project-card-container, article {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-card-container {
+      row-gap: 1rem;
+    }
+  }
 </style>

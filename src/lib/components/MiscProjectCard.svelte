@@ -49,6 +49,10 @@
     column-gap: 2rem;
   }
 
+  h2 {
+    margin-bottom: .5rem;
+  }
+
   article {
     flex: 2;
     display: flex;
@@ -91,5 +95,29 @@
     box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2),
       0px 0px 25px rgba(0, 0, 0, 0.1);
     object-fit: cover;
+  }
+
+  @media screen and (max-width:1000px) {
+    .project-card-container, article {
+      flex-direction: column;
+      align-items: center;
+      
+    }
+
+    .project-card-container {
+      row-gap: 1rem;
+    }
+
+    .project-image-link {
+      order: 2;
+      border-bottom: 2px solid black;
+    }
+
+    article {
+      order: 1;
+      width: 100%;
+      border-top: 2px solid black;
+      padding: 1rem;
+    }
   }
 </style>
