@@ -56,7 +56,7 @@
   }
 
   .main-right-col {
-    flex: 1.25;
+    flex: 1.4;
     display: flex;
     flex-direction: column;
   }

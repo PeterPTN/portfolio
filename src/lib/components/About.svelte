@@ -70,7 +70,8 @@
   }
 
   .highlight {
-    color: rgb(94, 123, 133);
+    text-shadow: 0px 0px 10px rgb(190, 190, 190), 0px 0px 2rem grey;
+    color: white;
   }
 
   ul {
