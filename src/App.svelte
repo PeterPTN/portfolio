@@ -3,25 +3,16 @@
   import Main from "./lib/containers/Main.svelte";
   import Footer from "./lib/containers/Footer.svelte";
   import Loader from "./lib/components/Loader.svelte";
-  import { onMount } from "svelte";
   import { getLatency } from "./services/dom-utils";
-  let loading = true;
-
-  onMount(async () => {
-    setTimeout(() => {
-      loading = false;
-    }, getLatency());
-  });
+  import { sleep } from "./services/async-utils";
 </script>
 
-{#if loading}
+{#await sleep(getLatency())}
   <Loader />
-{/if}
-<div>
-  <Hero />
-  <Main />
-  <Footer />
-</div>
-
-<style>
-</style>
+{:then}
+  <div>
+    <Hero />
+    <Main />
+    <Footer />
+  </div>
+{/await}

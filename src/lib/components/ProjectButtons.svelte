@@ -1,18 +1,17 @@
 <script lang="ts">
-  export let globalProjectType = "selected";
-  export let handleClick;
+  export let globalProjectType: "selected" | "misc" = "selected";
 </script>
 
 <div>
   <button
     class="truncate"
     class:active={globalProjectType === "selected"}
-    on:click={() => handleClick("selected")}>Selected Projects</button
+    on:click={() => (globalProjectType = "selected")}>Selected Projects</button
   >
   <button
     class="truncate"
     class:active={globalProjectType === "misc"}
-    on:click={() => handleClick("misc")}>Misc. Projects</button
+    on:click={() => (globalProjectType = "misc")}>Misc. Projects</button
   >
 </div>
 

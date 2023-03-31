@@ -7,21 +7,12 @@
     getSelectedProjects,
     getMiscProjects,
   } from "../../services/firebase-utils";
-  import { onMount } from "svelte";
 
-  let selectedProjects = [];
-  let miscProjects = [];
-
-  onMount(async () => {
-    selectedProjects = await getSelectedProjects();
-    miscProjects = await getMiscProjects();
-  });
-
-  let globalProjectType = "selected";
-
-  function toggleButton(projectType: string) {
-    globalProjectType = projectType;
+  function getProjects() {
+    return Promise.all([getSelectedProjects(), getMiscProjects()]);
   }
+
+  let globalProjectType: "selected" | "misc" = "selected";
 </script>
 
 <div class="main">
@@ -30,21 +21,23 @@
   </div>
 
   <div class="main-right-col">
-    <ProjectButtons {globalProjectType} handleClick={toggleButton} />
+    <ProjectButtons bind:globalProjectType />
     <div class="main-right-col-content">
-      {#if selectedProjects.length === 0 && miscProjects.length === 0}
+      {#await getProjects()}
         <h2>Loading...</h2>
-      {/if}
-
-      {#if globalProjectType === "selected" && selectedProjects.length > 0}
-        {#each selectedProjects as project}
-          <SelectedProjectCard {...project} />
+      {:then [selectedProjects, miscProjects]}
+        {@const component =
+          globalProjectType === "selected"
+            ? SelectedProjectCard
+            : MiscProjectCard}
+        {@const projects =
+          globalProjectType === "selected" ? selectedProjects : miscProjects}
+        {#each projects as project}
+          <svelte:component this={component} {...project} />
         {/each}
-      {:else if globalProjectType === "misc"}
-        {#each miscProjects as project}
-          <MiscProjectCard {...project} />
-        {/each}
-      {/if}
+      {:catch error}
+        <h2>{error.message}</h2>
+      {/await}
     </div>
   </div>
 </div>
@@ -73,7 +66,7 @@
     flex: 1;
   }
 
-  @media screen and (max-width:1000px) {
+  @media screen and (max-width: 1000px) {
     .main {
       flex-direction: column;
       row-gap: 4rem;

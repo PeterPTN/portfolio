@@ -13,7 +13,6 @@
     currentHoverId = id;
   }
 
-  console.log(id);
 </script>
 
 <div
