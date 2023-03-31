@@ -2,12 +2,13 @@
   import type ProjectDetails from "../../types/ProjectDetails";
   import FaExternalLinkAlt from "svelte-icons/fa/FaExternalLinkAlt.svelte";
   import FaCode from "svelte-icons/fa/FaCode.svelte";
+  import { fade } from "svelte/transition";
   export let details: ProjectDetails;
   export let images: string[];
 
 </script>
 
-<div class="project-card-container">
+<div class="project-card-container" in:fade>
   <a
     class="project-image-link"
     href={details?.url}
@@ -49,12 +50,12 @@
   }
 
   article {
-    padding: 0.5rem 0;
     flex: 2;
     display: flex;
     flex-direction: column;
-    line-height: 1.5;
-    row-gap: 0.5rem;
+    row-gap: 1rem;
+    line-height: 1.35;
+    letter-spacing: .5px;
   }
 
   li {
@@ -66,7 +67,7 @@
 
   .icon {
     aspect-ratio: 1/1;
-    height: 25px;
+    height: 20px;
     margin-right: 10px;
   }
 

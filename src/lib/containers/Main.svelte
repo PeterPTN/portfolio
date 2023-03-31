@@ -52,7 +52,7 @@
 <style>
   .main {
     display: flex;
-    column-gap: 2rem;
+    column-gap: 1rem;
   }
 
   .main-right-col {
@@ -63,10 +63,10 @@
 
   .main-right-col-content {
     background-color: var(--white);
-    padding: 3rem 1.5rem;
+    padding: 2rem 2rem;
     display: flex;
     flex-direction: column;
-    row-gap: 3rem;
+    row-gap: 2rem;
   }
 
   .main-left-col {

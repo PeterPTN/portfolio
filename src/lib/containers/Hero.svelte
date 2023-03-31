@@ -2,57 +2,45 @@
 </script>
 
 <div>
-  <div class="hero">
-    <div class="hero-left-col">
-      <h1>PPTN.</h1>
+  <div>
+      <h1>PPTN</h1>
       <h2>SOFTWARE DEVELOPER</h2>
-    </div>
-
-    <div class="hero-right-col">
-      <p>Human-centred Designs</p>
       <p>Peter Phong Thanh Nguyen</p>
-    </div>
   </div>
 </div>
 
 <style>
-  .hero {
-    display: flex;
-    align-items: stretch;
-    margin: auto;
-    transform-origin: 400px;
-  }
-
-  .hero-left-col {
-    position: relative;
-  }
-
   h1 {
-    letter-spacing: -3vw;
-    font-size: 20vw;
+    font-family: var(--title);
+    letter-spacing: -1.25rem;
+    font-size: 24rem;
     color: var(--white);
     flex: 4;
+    font-weight: lighter;
+    line-height: 0.5;
+    position: relative;
+    left: -1rem;
+    margin: 4rem 0 4rem;
+  }
+
+  h1::after {
+    content: ".";
+    color: rgb(17, 17, 17);
   }
 
   h2 {
-    top: -3rem;
+    top: -2rem;
     position: relative;
     font-size: 3rem;
     color: var(--white);
   }
 
-  .hero-right-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  p {
+    position: relative;
+    top: -3rem;
     font-size: 1.5rem;
     color: var(--white);
     flex: 1;
-    padding: 1rem 4rem;
     opacity: 0.25;
-  }
-
-  p {
-    margin-left: auto;
   }
 </style>

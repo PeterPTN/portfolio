@@ -28,14 +28,27 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     flex: 1;
+    border-bottom: .5rem solid transparent;
   }
 
   button.active {
-    transition: all 0.25s;
+    transition: all 0.15s;
     background-color: var(--white);
-    color: rgb(129, 94, 17);
-    font-weight: bold;
+    color: black;
+    font-weight: bolder;
+    letter-spacing: 4px;
+    border-color: black;
+    animation: fade .45s;
   }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  } 
 </style>
