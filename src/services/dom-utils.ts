@@ -1,3 +1,3 @@
 export function getLatency() {
-    return Math.floor(Math.random() * 1000) + 200;
+    return Math.floor(Math.random() * 500) + 750;
 }
