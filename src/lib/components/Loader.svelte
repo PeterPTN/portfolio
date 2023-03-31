@@ -20,13 +20,13 @@
   }
 
   .loader div {
+    margin-top: 25%;
     width: 75px;
     height: 75px;
     border-radius: 50%;
     border: 5px solid var(--white);
     border-top-color: transparent;
     animation: spin 1s linear infinite;
-    margin-top: 15%;
   }
 
   @keyframes spin {
