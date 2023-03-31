@@ -6,7 +6,7 @@
 </script>
 
 <div class="about-container">
-  <img src={me} alt="Me" />
+  <img src={me} alt="Self Portrait" />
 
   <ul>
     <li>

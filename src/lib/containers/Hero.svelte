@@ -4,7 +4,7 @@
 
 <div>
   <div>
-      <img src={pptn} alt="">
+      <img src={pptn} alt="PPTN title">
       <h2>SOFTWARE DEVELOPER</h2>
       <p>Peter Phong Thanh Nguyen</p>
   </div>
